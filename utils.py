@@ -1,4 +1,7 @@
-def addition(*inputs):
+from collections import defaultdict
+
+
+def addition(inputs):
     result = 0
     for i in inputs:
         result += i
@@ -6,25 +9,64 @@ def addition(*inputs):
     return result
 
 
-def subtraction(a, b):
-    return a - b
+def subtraction(inputs: list):
+    result = inputs.pop(0)
+    for i in inputs:
+        result -= i
+    return result
 
 
-def multiplication(a, b):
-    return a * b
+def multiplication(inputs: list):
+    result = 1
+    for i in inputs:
+        result *= i
+
+    return result
 
 
-def division(a, b):
-    return a / b
+def division(inputs: list):
+    result = inputs.pop(0)
+    for i in inputs:
+        result /= i
+    return result
 
 
-def modulus(a, b):
-    return a % b
+def modulus(inputs):
+    result = inputs.pop(0)
+    for i in inputs:
+        result %= i
+    return result
 
 
-def exponent(a, b):
-    return a**b
+def exponent(inputs):
+    result = inputs.pop(0)
+    for i in inputs:
+        result **= i
+    return result
 
 
-def floor_division(a, b):
-    return a // b
+def floor_division(inputs):
+    result = inputs.pop(0)
+    for i in inputs:
+        result //= i
+    return result
+
+
+def mean(inputs, op):
+    result = addition(inputs)
+
+    return result / op
+
+
+def median(inputs: list, op):
+    inputs.sort()
+    if op % 2 != 0:
+        result = inputs[op // 2]
+    else:
+        op -= 1
+        result = (inputs[op // 2] + inputs[(op // 2) + 1]) / 2
+    return result
+
+
+def mode(inputs):
+    d = defaultdict(lambda: 0)
