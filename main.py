@@ -41,3 +41,6 @@ elif option == 8:
 elif option == 9:
     result = utils.median(operands, n)
     print(f"the result of operation is: {result}")
+elif option == 10:
+    result = utils.mode(operands)
+    print(f"the result of operation is: {result}")

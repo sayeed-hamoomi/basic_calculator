@@ -70,3 +70,11 @@ def median(inputs: list, op):
 
 def mode(inputs):
     d = defaultdict(lambda: 0)
+    for i in inputs:
+        d[i]+=1
+
+    vals=list(d.values())
+    m= max(vals)
+    ind=vals.index(m)
+    return list(d.keys())[ind]
+
